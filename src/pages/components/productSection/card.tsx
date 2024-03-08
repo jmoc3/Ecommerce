@@ -37,7 +37,7 @@ export default function Card({index,url,productName,category,description,price,r
     return ()=>{
       observer.disconnect()
     }
-  },[])
+  },[url])
   
   
   const input = useContext(InputTextContext)

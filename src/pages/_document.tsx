@@ -1,11 +1,17 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import Providers from "./components/providers";
 
 export default function Document() {
   return (
     <Html lang="en">
-      <Head />
+      <Head >
+        <link rel="preload" href="https://fakestoreapi.com/products" />
+      </ Head >
+
       <body>
-        <Main />
+        <Providers>
+          <Main />
+        </Providers>
         <NextScript />
       </body>
     </Html>

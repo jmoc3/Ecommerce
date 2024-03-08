@@ -2,32 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body{
+  width: 100%;
+  overflow-x: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+[class*="card"]{
+  background: linear-gradient(0deg, rgba(254,226,226,1) 0%, white 48%, rgba(255,255,255,0) 100%);
+;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.filterSection{
+  background: linear-gradient(90deg, rgba(255,237,213,1) 0%, rgba(255,246,234,1) 80%, rgba(255,255,255,0) 100%);
+
+}
+  
+.bagIconOpen{
+  min-width: 22rem;
+  height: 19rem;
+  border-radius: 1rem;
+  position: absolute;
+  left: -7.7rem;
+  top:0rem;
+
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.line {
+  width: 100vw;
+}
+.leftSideHero, .rightSideHero {
+  width: 50vw;
+  overflow: hidden;
+  display: inline-block;
+}
+.leftSideHero {
+  color:#6F84B1;
+  transform: skew(0deg, -15deg);
+}
+.rightSideHero {
+  color: black;
+  transform: skew(0deg, 15deg);
+}
+.leftSideHero .contentHero {
+  width: 100vw;
+  text-align: center;
+}
+.rightSideHero .contentHero {
+  width: 100vw;
+  text-align: center;
+  transform: translate(-50vw);
+}
+.spanHero {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 5rem;
+  text-transform: uppercase;
+  line-height: .8;
+  transition: ease-out .6s;
 }

@@ -1,23 +1,13 @@
 import { Inter } from "next/font/google";
-import React, { useEffect, useState, Suspense } from "react";
+import React, { useState } from "react";
+import { useFetchContent } from "@/hooks/useFetchProducts";
+import type { Product } from "@/types";
 
 import Header from "./components/headerSection/header";
 import ProductsSection from "./components/productSection/productsSection";
-import {Card, Skeleton} from "@nextui-org/react";
-
-const Spline = React.lazy(() => import('@splinetool/react-spline'));
+import {Card} from "@nextui-org/react";
 
 const inter = Inter({ subsets: ["latin"] });
-
-type Product = {
-  id:number
-  image:string,
-  title:string,
-  description:string,
-  price:string,
-  rating:Record<string,string>,
-  category:string
-}
 
 export const setInputTextContext = React.createContext<React.Dispatch<React.SetStateAction<string>>|null>(null);
 export const InputTextContext = React.createContext<string>('');
@@ -32,56 +22,11 @@ export const setCartContext = React.createContext<React.Dispatch<React.SetStateA
 export const totalInvoiceContext = React.createContext<string>('')
 export const setTotalInvoiceContext = React.createContext<React.Dispatch<React.SetStateAction<string>> | null>(null)
 
+
 export default function Home():JSX.Element {
 
-  const [isLoading, setIsLoading] = useState<boolean>(true)
-
-  const [products, setProducts] = useState<Product[]>([]) 
-  const [categories, setCategories] = useState<string[]>([]) 
-  const [categoryOptions,setCategoriesOption] = useState<string[]>([])
+  const {products, categories, categoryOptions, setCategoriesOption} = useFetchContent()
   
-  
-  const productsInfo = async():Promise<void> => {
-
-    const api = await fetch("https://fakestoreapi.com/products")
-    const json = await api.json()
-    setProducts(json)
- 
-    const categories_values:string[] = json.map((product:Product)=> product.category)
-    const category:string[] = Array.from(new Set(categories_values))
-    setCategories(['All',...category])
-    setCategoriesOption([...category])
-  }
-
-  useEffect(():void=>{
-    productsInfo()
-
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('resize', handleWindowResize);
-
-    const spansSlow = document.querySelectorAll<HTMLElement>('.spanSlow');
-    const spansFast = document.querySelectorAll<HTMLElement>('.spanFast');
-
-    let width = window.innerWidth;
-
-    function handleMouseMove(e:MouseEvent) {
-      let normalizedPosition = e.pageX / (width/2) - 1;
-      let speedSlow = 100 * normalizedPosition;
-      let speedFast = 200 * normalizedPosition;
-      spansSlow.forEach((span) => {
-        span.style.transform = `translate(${speedSlow}px)`;
-      });
-      spansFast.forEach((span) => {
-        span.style.transform = `translate(${speedFast}px)`
-      })
-    }
-    
-    function handleWindowResize() {
-      width = window.innerWidth;
-    }
-
-  },[])
-
   const [inputText, setInputText] = useState('')
   const [orderList, setOrderList] = useState<Record<string,Array<string>>>({})
   const [totalInvoice, setTotalInvoce] = useState<string>('')
@@ -100,14 +45,12 @@ export default function Home():JSX.Element {
                 </totalInvoiceContext.Provider>
               </setInputTextContext.Provider>
       
-      <main className={`flex w-full flex-col items-center justify-center ${inter.className} overflow-hidden`}>
+      <main className={`flex w-full flex-col items-center justify-center ${inter.className}`}>
       
       <div className="hero w-full h-screen relative">
 
         <Card className="w-[45%] h-[60%] absolute top-[25%] left-[10%] space-y-5 " radius="lg">
-          <Suspense fallback={<Skeleton className="rounded-lg h-full"><div className=" rounded-lg bg-default-300"></div></Skeleton>}>
-            <Spline scene="https://prod.spline.design/QBK-nwsIL9ibIDGS/scene.splinecode" className="w-inherit h-inherit rounded-lg"  />
-          </ Suspense>
+          
         </Card>
       
         <div className="texts absolute -right-[20%] top-[45%]	w-inherit pointer-events-none	">

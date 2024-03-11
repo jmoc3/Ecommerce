@@ -2,19 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-  width: 100%;
-  overflow-x: hidden;
-}
-
 [class*="card"]{
   background: linear-gradient(0deg, rgba(254,226,226,1) 0%, white 48%, rgba(255,255,255,0) 100%);
 ;
-}
-
-.filterSection{
-  background: linear-gradient(90deg, rgba(255,237,213,1) 0%, rgba(255,246,234,1) 80%, rgba(255,255,255,0) 100%);
-
 }
   
 .bagIconOpen{
@@ -24,7 +14,6 @@ body{
   position: absolute;
   left: -7.7rem;
   top:0rem;
-
 }
 
 .line {

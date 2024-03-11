@@ -8,7 +8,7 @@ export default function Document() {
         <link rel="preload" href="https://fakestoreapi.com/products" />
       </ Head >
 
-      <body>
+      <body className="w-full overflow-x-hidden">
         <Providers>
           <Main />
         </Providers>

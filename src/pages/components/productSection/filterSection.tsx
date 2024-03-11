@@ -18,9 +18,9 @@ export default function FilterSection(){
     
   }
 
-  return (
-    <div className="categories flex flex-col gap-5">
-      <h2 className="text-xl font-bold">Categories</h2>
+  return ( 
+    <div className="categories flex flex-col gap-5 ">
+      <h2 className="text-xl font-bold ">Categories</h2>
         <div className="categoryOptions flex flex-col gap-2">
           {
             categories!.map((category,index)=>(

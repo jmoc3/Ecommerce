@@ -4,9 +4,7 @@ import Providers from "./components/providers";
 export default function Document() {
   return (
     <Html lang="en">
-      <Head >
-        <link rel="preload" href="https://fakestoreapi.com/products" />
-      </ Head >
+      <Head />
 
       <body className="w-full overflow-x-hidden">
         <Providers>

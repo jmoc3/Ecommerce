@@ -2,18 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-[class*="card"]{
-  background: linear-gradient(0deg, rgba(254,226,226,1) 0%, white 48%, rgba(255,255,255,0) 100%);
-;
+.header{
+  backdrop-filter:blur(5px)
 }
-  
-.bagIconOpen{
-  min-width: 22rem;
-  height: 19rem;
-  border-radius: 1rem;
-  position: absolute;
-  left: -7.7rem;
-  top:0rem;
+
+.containerHero{
+  animation: fade-out linear;
+  animation: header-image-animation linear forwards;
+  animation-timeline: view();
+  animation-range: exit -200px;
+}
+
+
+@keyframes fade-out{
+  to { opacity: 0;}
+}
+
+@keyframes header-image-animation{
+  85%, 100% {opacity: 0; scale: 0;}
 }
 
 .line {
@@ -25,7 +31,7 @@
   display: inline-block;
 }
 .leftSideHero {
-  color:#6F84B1;
+  color:  white;
   transform: skew(0deg, -15deg);
 }
 .rightSideHero {
@@ -48,4 +54,73 @@
   text-transform: uppercase;
   line-height: .8;
   transition: ease-out .6s;
+}
+
+.cardHero{
+  width: 80px;
+  border-radius: .75rem;
+  background-size: cover;
+  background-position: center;
+  cursor:pointer;
+  overflow: hidden;
+  border-radius: 2rem;
+  margin: 0 10px;
+  display: flex;
+  align-items: flex-end;
+  transition: .6s cubic-bezier(.28,-0.03,0,.99);
+  box-shadow: 0 10px 30px -5px rgba(0,0,0,0.8);
+}
+
+.cardHero >.row{
+  color:white;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.cardHero > .row > .icon {
+  background: #223;
+  color: white;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: .8rem;
+ }
+
+.cardHero > .row > .descriptionHero {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  height: 80px;
+  width: 520px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition-delay: .3s;
+  transition: all .3 ease;
+}
+
+.descriptionHero p {
+  color: whitesmoke;
+  padding-top: 5px;
+}
+
+.descriptionHero h4 {
+  text-transform: uppercase;
+}
+
+.ratio {
+  display: none;
+}
+
+.ratio:checked + label { 
+  width: 600px;
+}
+
+.ratio:checked + label .descriptionHero { 
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }

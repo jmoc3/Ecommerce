@@ -2,8 +2,8 @@ import { ChangeEventHandler, useContext } from "react"
 import { CategoriesContext, CategoryOptionsToggleContext } from "@/pages"
 
 let categoryOptions:string[] = []
+
 export default function FilterSection(){
-  
   const categories = useContext<string[]>(CategoriesContext)
   const categoryOptionsHandler = useContext<React.Dispatch<React.SetStateAction<string[]>>|null>(CategoryOptionsToggleContext)
   const checked:ChangeEventHandler<HTMLInputElement> = (e:React.ChangeEvent<HTMLInputElement>) =>{

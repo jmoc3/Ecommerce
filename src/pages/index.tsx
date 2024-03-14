@@ -5,8 +5,10 @@ import type { Product } from "@/types";
 
 import Header from "./components/headerSection/header";
 import ProductsSection from "./components/productSection/productsSection";
-import {Card} from "@nextui-org/react";
+import HeroSlide from "./components/heroSection/slider";
+import HeroText from "./components/heroSection/heroText";
 
+import Image from "next/image";
 const inter = Inter({ subsets: ["latin"] });
 
 export const setInputTextContext = React.createContext<React.Dispatch<React.SetStateAction<string>>|null>(null);
@@ -47,77 +49,25 @@ export default function Home():JSX.Element {
       
       <main className={`flex w-full flex-col items-center justify-center ${inter.className}`}>
       
-      <div className="hero w-full h-screen relative">
-
-        <Card className="w-[45%] h-[60%] absolute top-[25%] left-[10%] space-y-5 " radius="lg">
-          
-        </Card>
-      
-        <div className="texts absolute -right-[20%] top-[45%]	w-inherit pointer-events-none	">
-          <div className="line">
-            <div className="leftSideHero">
-              <div className="contentHero">
-                <span className="spanHero spanSlow">buy</span>
-              </div>
-            </div>
-            <div className="rightSideHero">
-              <div className="contentHero">
-                <span className="spanHero spanSlow ">buy</span>
-              </div>
-            </div>
-          </div>
-          <div className="line">
-            <div className="leftSideHero">
-              <div className="contentHero">
-                <span className="spanHero spanSlow">whatever</span>
-              </div>
-            </div>
-            <div className="rightSideHero">
-              <div className="contentHero">
-                <span className="spanHero spanSlow">whatever</span>
-              </div>
-            </div>
-          </div>
-      
-          <div className="line">
-            <div className="leftSideHero">
-              <div className="contentHero">
-                <span className="spanHero spanFast">you</span>
-              </div>
-            </div>
-            <div className="rightSideHero">
-              <div className="contentHero">
-                <span className="spanHero spanFast">you</span>
-              </div>
-            </div>
-          </div>
-      
-          <div className="line">
-            <div className="leftSideHero">
-              <div className="contentHero">
-                <span className="spanHero spanSlow">want</span>
-              </div>
-            </div>
-            <div className="rightSideHero">
-              <div className="contentHero">
-                <span className="spanHero spanSlow">want</span>
-              </div>
-            </div>
-          </div>
+        <div className="hero w-full h-screen relative bg-[url('https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-center select-none">  
+          <Image loader={({ src, width }) => { return src + "?w=" + width }} src={"https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"} width={0} height={0} alt="cardImage" className="heroImage w-full h-screen object-contain select-none" priority={true}/>    
+          <HeroSlide />
+          <HeroText />
         </div>
-      </div>
-      
-      <InputTextContext.Provider value={inputText}>
-        <CategoriesContext.Provider value={categories}>
-          <CategoryOptionsContext.Provider value={categoryOptions}>
-            <CategoryOptionsToggleContext.Provider value={setCategoriesOption}>
-
-               <ProductsSection />
-                          
-            </CategoryOptionsToggleContext.Provider>
-          </CategoryOptionsContext.Provider>
-        </CategoriesContext.Provider>
-      </InputTextContext.Provider>
+    
+        <setInputTextContext.Provider value={setInputText}>
+          <InputTextContext.Provider value={inputText}>
+            <CategoriesContext.Provider value={categories}>
+              <CategoryOptionsContext.Provider value={categoryOptions}>
+                <CategoryOptionsToggleContext.Provider value={setCategoriesOption}>
+    
+                   <ProductsSection />
+                            
+                </CategoryOptionsToggleContext.Provider>
+              </CategoryOptionsContext.Provider>
+            </CategoriesContext.Provider>
+          </InputTextContext.Provider>
+        </setInputTextContext.Provider>
       
       </main>
             </ setTotalInvoiceContext.Provider >

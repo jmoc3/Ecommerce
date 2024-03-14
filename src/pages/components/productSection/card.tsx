@@ -1,23 +1,16 @@
 import Image from "next/image"
 import { BsFillStarFill } from "react-icons/bs";
 import { BiShoppingBag } from "react-icons/bi";
+
 import { useContext, useState } from "react";
+
 import {CircularProgress, Divider, CardFooter, Card, Button } from "@nextui-org/react";
+import { CardProps } from "@/types";
 
-import { observerFunction } from "@/services/addProductToCart";
+import { observerFunction } from "@/services/observerLogic";
+import { addToCart } from "@/services/cartServices/addProductToCart";
 
-import { setTotalInvoiceContext, cartContext,setCartContext, InputTextContext,CategoryOptionsContext } from "@/pages";
-
-type CardProps = {
-  index: number,
-  url: string,
-  productName: string,
-  category:string,
-  description: string,
-  price: string,
-  rate:string
-}
-
+import { setTotalInvoiceContext,setCartContext, InputTextContext,CategoryOptionsContext } from "@/pages";
 
 let occ:Record<string,Array<string>> = {}
 
@@ -25,31 +18,11 @@ export default function productCard({index,url,productName,category,description,
   
   const { newsrc, node } = observerFunction(url)
   
-  
   const input = useContext(InputTextContext)
   const categoryOptions = useContext(CategoryOptionsContext)
   
-  const cart = useContext(cartContext)
   const setCart = useContext(setCartContext)
   const setTotalInvoice = useContext(setTotalInvoiceContext)
-
-  occ = cart
-  
-  const addToCart:React.MouseEventHandler = (e) => {
-    
-    const product = e.currentTarget.parentNode!.parentNode!
-    const productName = product.firstChild!.firstChild!.textContent as string
-    const quantity = `${occ[productName!]==undefined ? 1 : parseInt(occ[productName!][1])+1}`
-    const productPrice = product.lastChild!.firstChild!.textContent!.substring(1) as string
-    
-    if (product != null) occ[productName!] = [productName,quantity,productPrice, `${(+productPrice*+quantity).toFixed(2)}` ]
-
-    const res = (Object.values(occ).map(e => parseFloat(e[3])).reduce((ac,el)=>ac+el)).toFixed(2)
-    
-    setCart!({...occ})
-    setTotalInvoice!(`${res}`)
-    
-  }
   
   const [cardState, setCardState] = useState<boolean>(false)
   const zoom:React.MouseEventHandler<HTMLDivElement> = () => setCardState(!cardState)
@@ -77,9 +50,9 @@ export default function productCard({index,url,productName,category,description,
           <span className="price text-sm font-bold">${price}</span>
           <div className="rate flex items-center gap-1">
             <span className="rate text-xs font-bold">{rate}</span>
-            <BsFillStarFill className="text-red-500 text-xs" />
+            <BsFillStarFill className="text-blue-500 text-xs" />
           </div>
-          <Button onClick={addToCart}  className="addshoppingIcon bg-red-300 hover:bg-red-400 hover:text-white hover:scale-110 rounded-full transition duration-500 cursor-pointer" size="sm">
+          <Button onClick={(e)=>addToCart({e,occ, setCart,setTotalInvoice})}  className="addshoppingIcon bg-blue-300 hover:bg-blue-400 hover:text-white hover:scale-110 rounded-full transition duration-500 cursor-pointer" size="sm">
             <BiShoppingBag className="text-sm" />
           </Button>
         </CardFooter >

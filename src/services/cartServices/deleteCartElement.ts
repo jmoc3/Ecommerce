@@ -1,7 +1,7 @@
 import type { propsState } from "@/types";
 
 export const deletCarteElement = ({orderList,productName, setCart,setTotalInvoice}:propsState) => {
-
+  
   delete orderList[productName]
   setCart!({...orderList})
   
@@ -9,5 +9,4 @@ export const deletCarteElement = ({orderList,productName, setCart,setTotalInvoic
 
   const res = (Object.values(orderList).map((el:any) => parseFloat(el[3])).reduce((ac,el)=>ac+el)).toFixed(2)
   setTotalInvoice!(res)
-  
 }

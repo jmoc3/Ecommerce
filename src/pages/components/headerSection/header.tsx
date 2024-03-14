@@ -3,7 +3,6 @@ import { BiSolidShoppingBag } from "react-icons/bi"
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Badge} from "@nextui-org/react";
 
 import Image from "next/image"
-
 import businessLogo from "/public/Logo.png"
 
 import { totalInvoiceContext, cartContext } from "../..";

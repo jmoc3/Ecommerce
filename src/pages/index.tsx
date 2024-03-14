@@ -5,8 +5,11 @@ import type { Product } from "@/types";
 
 import Header from "./components/headerSection/header";
 import ProductsSection from "./components/productSection/productsSection";
+
+import heroImg from "/public/images/heroImg.jpg"
 import HeroSlide from "./components/heroSection/slider";
 import HeroText from "./components/heroSection/heroText";
+
 
 import Image from "next/image";
 const inter = Inter({ subsets: ["latin"] });
@@ -49,8 +52,8 @@ export default function Home():JSX.Element {
       
       <main className={`flex w-full flex-col items-center justify-center ${inter.className}`}>
       
-        <div className="hero w-full h-screen relative bg-[url('https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-center select-none">  
-          <Image loader={({ src, width }) => { return src + "?w=" + width }} src={"https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"} width={0} height={0} alt="cardImage" className="heroImage w-full h-screen object-contain select-none" priority={true}/>    
+        <div className="hero w-full relative bg-no-repeat bg-center select-none flex justify-center" style={{backgroundImage:`url(${heroImg.src})`}}>  
+          <Image loader={({ src, width }) => { return src + "?w=" + width }} src={heroImg.src} width={0} height={0} alt="cardImage" className="heroImage w-[74.3%] h-screen select-none" priority={true}/>    
           <HeroSlide />
           <HeroText />
         </div>

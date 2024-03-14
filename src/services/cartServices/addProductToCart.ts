@@ -1,7 +1,8 @@
 import { addToCartprops } from "@/types"
 
-export const addToCart = ({e,occ, setCart,setTotalInvoice}:addToCartprops) => {
+export const addToCart = ({e,occ, cart,setCart,setTotalInvoice}:addToCartprops) => {
   
+  occ = cart
   const element = e.currentTarget! as HTMLElement
   const product = element.parentNode!.parentNode!
   

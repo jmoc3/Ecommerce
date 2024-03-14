@@ -36,6 +36,7 @@ type propsState = {
 type addToCartprops = {
   e:React.MouseEvent<HTMLButtonElement, MouseEvent>,
   occ:Record<string,Array<string>>,
+  cart:Record<string,Array<string>>,
   setCart:React.Dispatch<React.SetStateAction<Record<string,Array<string>>>> | null,
   setTotalInvoice:React.Dispatch<React.SetStateAction<string>> | null
 }

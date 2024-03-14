@@ -28,7 +28,7 @@ export default function ProductCard({index,url,productName,category,description,
   const [cardState, setCardState] = useState<boolean>(false)
   const zoom:React.MouseEventHandler<HTMLDivElement> = () => setCardState(!cardState)
 
-  const lowerProductName = productName.toLowerCase()
+  const lowerProductName = (productName || "").toLowerCase()
  
   return (
     <Card isFooterBlurred className={`card-${index} flex flex-col justify-evenly items-center w-72 ${url ? "h-full" : "h-96"} hover:scale-105  rounded-2xl cursor-pointer ${lowerProductName.includes(input) ? '' : 'hidden'} ${categoryOptions.includes(category) ? '' : 'hidden'} ${cardState && ''} transition-all ease-in-out duration-[.3s]`} data-value={category}>

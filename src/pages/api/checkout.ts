@@ -7,7 +7,7 @@ export default async function POST(req:NextApiRequest, res:NextApiResponse){
   const body = req.body
 
   const session =  await stripe.checkout.sessions.create({
-    success_url:'http://localhost:3000',
+    success_url:'https://ecommerce-nu-wine.vercel.app/',
     line_items:body,
     mode:'payment'
   });

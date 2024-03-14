@@ -14,7 +14,7 @@ import { setTotalInvoiceContext,cartContext,setCartContext, InputTextContext,Cat
 
 let occ:Record<string,Array<string>> = {}
 
-export default function productCard({index,url,productName,category,description,price,rate}:CardProps){
+export default function ProductCard({index,url,productName,category,description,price,rate}:CardProps){
   
   const { newsrc, node } = observerFunction(url)
   

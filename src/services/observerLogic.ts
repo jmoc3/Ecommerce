@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react"
 
-export const observerFunction = (url:string) =>{
+export const useObserverFunction = (url:string) =>{
 
   const node = useRef<HTMLImageElement>(null)
   const [newsrc, setSrc] = useState<string>('')

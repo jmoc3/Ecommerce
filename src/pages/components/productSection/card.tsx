@@ -7,7 +7,7 @@ import { useContext, useState } from "react";
 import {CircularProgress, Divider, CardFooter, Card, Button } from "@nextui-org/react";
 import { CardProps } from "@/types";
 
-import { observerFunction } from "@/services/observerLogic";
+import { useObserverFunction } from "@/services/observerLogic";
 import { addToCart } from "@/services/cartServices/addProductToCart";
 
 import { setTotalInvoiceContext,cartContext,setCartContext, InputTextContext,CategoryOptionsContext } from "@/pages";
@@ -16,7 +16,7 @@ let occ:Record<string,Array<string>> = {}
 
 export default function ProductCard({index,url,productName,category,description,price,rate}:CardProps){
   
-  const { newsrc, node } = observerFunction(url)
+  const { newsrc, node } = useObserverFunction(url)
   
   const input = useContext(InputTextContext)
   const categoryOptions = useContext(CategoryOptionsContext)

@@ -2,7 +2,7 @@ import { Inter } from "next/font/google";
 import React, { useState } from "react";
 import { useFetchContent } from "@/hooks/useFetchProducts";
 import type { Product } from "@/types";
-
+import Head from "next/head";
 import Header from "./components/headerSection/header";
 import ProductsSection from "./components/productSection/productsSection";
 
@@ -37,7 +37,9 @@ export default function Home():JSX.Element {
   const [totalInvoice, setTotalInvoce] = useState<string>('')
 
   return (
+    
     <div className="all w-screen h-fit">
+      <Head><title>LeBlonde Shop</title></Head>
       <ProductContext.Provider value={products}>
         <setCartContext.Provider value={setOrderList}>
           <cartContext.Provider value={orderList}>

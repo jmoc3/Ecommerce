@@ -18,7 +18,7 @@ export default function Header(){
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
   return (
-    <div className="header flex z-50 fixed w-full py-5 pl-[16%] pr-[15.3%] justify-between items-center">
+    <div className="header flex z-50 fixed w-screen py-5 pl-[16%] pr-[15.3%] justify-between items-center">
       <div className="left flex justify-between items-center gap-5">
         <div className="img hover:scale-105 w-56 transition duration-500 cursor-pointer">
           <Image loader={({ src, width }) => { return src + "?w=" + width }} src={businessLogo} width={100} height={0} alt="logoImage"   placeholder="blur"

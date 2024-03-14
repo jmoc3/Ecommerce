@@ -9,9 +9,9 @@ export default function Document() {
         <meta property="og:type" content="website" />
         <meta property="og:image" itemProp="image primaryImageOfPage" content="/Hero.png"/>
         <meta property="og:url" content="https://ecommerce-nu-wine.vercel.app/"/>
-        <title>LeBlonde Shop</title>
       </Head>
 
+      <title>LeBlonde Shop</title>
       <body className="w-full overflow-x-hidden">
         <Providers>
           <Main />

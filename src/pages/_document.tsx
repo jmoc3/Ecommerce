@@ -6,6 +6,9 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link rel="shortcut icon" href="/logoIcon.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" itemProp="image primaryImageOfPage" content="/Hero.png"/>
+        <meta property="og:url" content="https://ecommerce-nu-wine.vercel.app/"/>
       </Head>
       <title>LeBlonde Shop</title>
 

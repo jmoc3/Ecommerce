@@ -18,14 +18,14 @@ export default function Header(){
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
   return (
-    <div className="header flex z-50 fixed w-full py-5 px-[15%] justify-between items-center">
+    <div className="header flex z-50 fixed w-full py-5 pl-[16%] pr-[15.3%] justify-between items-center">
       <div className="left flex justify-between items-center gap-5">
         <div className="img hover:scale-105 w-56 transition duration-500 cursor-pointer">
           <Image loader={({ src, width }) => { return src + "?w=" + width }} src={businessLogo} width={100} height={0} alt="logoImage"   placeholder="blur"
 />
         </div>
       </div> 
-      <div className="right flex justify-between items-center gap-5 relative">
+      <div className="right flex justify-between items-center gap-5">
       <Badge content={Object.keys(orderList).length} className="bg-blue-400 text-sm" >
         <Button  onPress={onOpen}  className="bg-blue-300">
           <BiSolidShoppingBag  className="text-lg "/>

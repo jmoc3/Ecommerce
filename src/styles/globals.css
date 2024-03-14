@@ -2,13 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-.header{
-  backdrop-filter:blur(5px)
-}
 
-.containerHero{
+.containerHero, .texts{
   animation: fade-out linear;
-  animation: header-image-animation linear forwards;
   animation-timeline: view();
   animation-range: exit -200px;
 }
@@ -18,9 +14,6 @@
   to { opacity: 0;}
 }
 
-@keyframes header-image-animation{
-  85%, 100% {opacity: 0; scale: 0;}
-}
 
 .line {
   width: 100vw;

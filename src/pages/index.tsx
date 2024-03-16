@@ -54,7 +54,7 @@ export default function Home():JSX.Element {
       
       <main className={`flex w-full flex-col items-center justify-center ${inter.className}`}>
       
-        <div className="hero w-full relative bg-no-repeat bg-center select-none flex justify-center" style={{backgroundImage:`url(${heroImg.src})`}}>  
+        <div className="hero w-full relative bg-center select-none flex justify-center overflow-hidden" style={{backgroundImage:`url(${heroImg.src})`}}>  
           <Image loader={({ src, width }) => { return src + "?w=" + width }} src={heroImg.src} width={0} height={0} alt="cardImage" className="heroImage w-[74.3%] h-screen select-none" priority={true}/>    
           <HeroSlide />
           <HeroText />

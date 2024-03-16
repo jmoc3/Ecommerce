@@ -15,14 +15,14 @@ export default function ProductFather(){
 
       <div className="welcomeText">
         <div className="title flex mb-2">
-          <h1 className="text-6xl">Welcome to</h1><span className="text-6xl text-blue-800 ml-5 cursive"> Leblonde shop</span>
+          <h1 className="text-3xl 2xl:text-6xl">Welcome to</h1><span className="text-3xl 2xl:text-6xl text-blue-800 ml-5 cursive"> Leblonde shop</span>
         </div>
           <span className="text-xl">Something specific you want to find?</span>
       </div>
       <input type="text" onChange={texting} maxLength={20} className="h-8 w-96 p-2 rounded hover:scale-105 transition duration-500 border-2 border-blue-200"/>
       </div>
 
-      <div className="products grid grid-cols-3 gap-10 place-items-center">
+      <div className="products grid grid-cols-2 2xl:grid-cols-3 gap-10 place-items-center">
         {
           products.map((product,index)=>(
             <ProductCard index={product.id} key={index} url={product.image} productName={product.title} category={product.category} price={product.price} rate={product.rating.rate} description={product.description}/>

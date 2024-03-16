@@ -31,7 +31,7 @@ export default function ProductCard({index,url,productName,category,description,
   const lowerProductName = (productName || "").toLowerCase()
  
   return (
-    <Card isFooterBlurred className={`card-${index} flex flex-col justify-evenly items-center w-72 ${url ? "h-full" : "h-96"} hover:scale-105  rounded-2xl cursor-pointer ${lowerProductName.includes(input) ? '' : 'hidden'} ${categoryOptions.includes(category) ? '' : 'hidden'} ${cardState && ''} transition-all ease-in-out duration-[.3s]`} data-value={category}>
+    <Card isFooterBlurred className={`card-${index} flex flex-col justify-evenly items-center w-[full] 2xl:w-72 ${url ? "h-full" : "h-96"} hover:scale-105  rounded-2xl cursor-pointer ${lowerProductName.includes(input) ? '' : 'hidden'} ${categoryOptions.includes(category) ? '' : 'hidden'} ${cardState && ''} transition-all ease-in-out duration-[.3s]`} data-value={category}>
       
       <div ref={node} className="img flex py-8 h-1/3 justify-center items-center overflow-hidden select-none" >
         {newsrc ? (

@@ -19,7 +19,7 @@ export default function FilterSection(){
   }
 
   return ( 
-    <div className="categories flex flex-col gap-5 ">
+    <div className="categories flex flex-col gap-5  sticky top-[9rem] pt-[3rem] ">
       <h2 className="text-xl font-bold ">Categories</h2>
         <div className="categoryOptions flex flex-col gap-2">
           {

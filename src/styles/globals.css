@@ -15,9 +15,6 @@
 }
 
 
-.line {
-  width: 100vw;
-}
 .leftSideHero, .rightSideHero {
   width: 50vw;
   overflow: hidden;
@@ -43,23 +40,12 @@
 .spanHero {
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
-  font-size: 5rem;
   text-transform: uppercase;
   line-height: .8;
   transition: ease-out .6s;
 }
 
 .cardHero{
-  width: 80px;
-  border-radius: .75rem;
-  background-size: cover;
-  background-position: center;
-  cursor:pointer;
-  overflow: hidden;
-  border-radius: 2rem;
-  margin: 0 10px;
-  display: flex;
-  align-items: flex-end;
   transition: .6s cubic-bezier(.28,-0.03,0,.99);
   box-shadow: 0 10px 30px -5px rgba(0,0,0,0.8);
 }
@@ -75,12 +61,9 @@
   background: #223;
   color: white;
   border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: .8rem;
  }
 
 .cardHero > .row > .descriptionHero {
@@ -110,7 +93,7 @@
 }
 
 .ratio:checked + label { 
-  width: 600px;
+  width: 38%;
 }
 
 .ratio:checked + label .descriptionHero { 

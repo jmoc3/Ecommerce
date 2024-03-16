@@ -5,12 +5,12 @@ export default function HeroText(){
       <div className="line">
         <div className="leftSideHero">
           <div className="contentHero">
-            <span className="spanHero spanSlow">buy</span>
+            <span className="spanHero spanSlow text-5xl 2xl:text-7xl	">buy</span>
           </div>
         </div>
         <div className="rightSideHero">
           <div className="contentHero">
-            <span className="spanHero spanSlow ">buy</span>
+            <span className="spanHero spanSlow text-5xl 2xl:text-7xl	">buy</span>
           </div>
         </div>
       </div>
@@ -18,12 +18,12 @@ export default function HeroText(){
       <div className="line">
         <div className="leftSideHero">
           <div className="contentHero">
-            <span className="spanHero spanSlow">whatever</span>
+            <span className="spanHero spanSlow text-5xl 2xl:text-7xl	">whatever</span>
           </div>
         </div>
         <div className="rightSideHero">
           <div className="contentHero">
-            <span className="spanHero spanSlow">whatever</span>
+            <span className="spanHero spanSlow text-5xl 2xl:text-7xl	">whatever</span>
           </div>
         </div>
       </div>
@@ -31,12 +31,12 @@ export default function HeroText(){
       <div className="line">
         <div className="leftSideHero">
           <div className="contentHero">
-            <span className="spanHero spanFast">you</span>
+            <span className="spanHero spanFast text-5xl 2xl:text-7xl	">you</span>
           </div>
         </div>
         <div className="rightSideHero">
           <div className="contentHero">
-            <span className="spanHero spanFast">you</span>
+            <span className="spanHero spanFast text-5xl 2xl:text-7xl	">you</span>
           </div>
         </div>
       </div>
@@ -44,12 +44,12 @@ export default function HeroText(){
       <div className="line">
         <div className="leftSideHero">
           <div className="contentHero">
-            <span className="spanHero spanSlow">want</span>
+            <span className="spanHero spanSlow text-5xl 2xl:text-7xl	">want</span>
           </div>
         </div>
         <div className="rightSideHero">
           <div className="contentHero">
-            <span className="spanHero spanSlow">want</span>
+            <span className="spanHero spanSlow text-5xl 2xl:text-7xl	">want</span>
           </div>
         </div>
       </div>
